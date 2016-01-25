@@ -13,6 +13,7 @@ app.controller('myController', function($scope, $http) {
         $scope.tableToSort = tableToSort;
     };
 
+    // HTTP GET SEARCH WORD
     $scope.myFunction = function() {
 
         //SEARCH INPUT
