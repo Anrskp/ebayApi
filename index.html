@@ -23,12 +23,17 @@
 
         <!-- SEARCH FIELDS -->
         <input type="text" id="userInput">
-        <button class="btn btn-default" ng-click="myFunction()"> Search <span class="glyphicon glyphicon-search"></span></button>
+
+        <button ng-click="myFunction()"
+                class="btn btn-default">
+                Search
+        <span class="glyphicon glyphicon-search"></span></button>
 
         <!-- SORTING BUTTONS -->
         <div style='float: right'>
-            <button  ng-click="sortTable('sellingStatus[0].currentPrice[0].__value__')" class="btn btn-default">
-            sort list
+            <button  ng-click="sortTable('sellingStatus[0].currentPrice[0].__value__')"
+                     class="btn btn-default">
+                     Sort list
             </button>
         </div>
     </div>
@@ -54,7 +59,8 @@
                 </div>
             </td>
             <!-- PRICE -->
-            <td> PRICE : {{ data.sellingStatus[0].currentPrice[0].__value__ }} USD.- </td>
+            <td>
+                {{ data.sellingStatus[0].currentPrice[0].__value__ }} </td>
 
             <!-- CURRENCY NOT WORKING. USD.- HARDCODED SO FAR -->
             <!-- <td> {{ data.sellingStatus[0].currentPrice[0].@currencyId }} </td>  -->

@@ -1,5 +1,9 @@
+'use strict'
+
 var app = angular.module('myApp', []);
+
 app.controller('myController', function($scope, $http) {
+
 
     // TABLE SORTING
     $scope.tableToSort = '';
