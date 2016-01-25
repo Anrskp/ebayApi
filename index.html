@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>eBay API</title>
+
+    <!--TWITTER BOOTSTRAP MIN -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- ANGULAR.JS MIN -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- IMPORT APP.JS, STYLE.CSS -->
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myController" align="center">
+
+    <!-- SEARCH MENUBAR DIV -->
+    <div style='background-color: slategrey; padding-top: 50px; margin-bottom: 50px; padding-bottom: 50px;'>
+
+        <!-- SEARCH FIELDS -->
+        <input type="text" id="userInput">
+        <button class="btn btn-default" ng-click="myFunction()"> Search <span class="glyphicon glyphicon-search"></span></button>
+
+        <!-- SORTING BUTTONS -->
+        <div style='float: right'>
+            <button  ng-click="sortTable('sellingStatus[0].currentPrice[0].__value__')" class="btn btn-default">
+            sort list
+            </button>
+        </div>
+    </div>
+
+    <!-- RESULT TABLE -->
+    <table>
+        <tr onmouseover="this.style.background='lightgrey';"
+            onmouseleave="this.style.background='white';"
+            ng-repeat="data in myData.item | orderBy:tableToSort:reverse" >
+
+            <td ng-mouseenter="show = true"
+                ng-mouseleave="show = false">
+
+                <!-- TITLE -->
+                {{ data.title[0] }}
+                <div ng-show="show">
+                    <br><br>
+                    <p><i>
+                          <!-- CONDITION, ENDTIME AND LINK TO SITE, ONLY SHOWS ON TITLE TR MOUSE HOOVER -->
+                          CONDITION: {{data.condition[0].conditionDisplayName[0]}}<br>
+                          END TIME:  {{data.listingInfo[0].endTime[0]}}</i></p>
+                          <a href={{data.viewItemURL[0]}} target="_blank"> GOTO BUYERS SITE</a>
+                </div>
+            </td>
+            <!-- PRICE -->
+            <td> PRICE : {{ data.sellingStatus[0].currentPrice[0].__value__ }} USD.- </td>
+
+            <!-- CURRENCY NOT WORKING. USD.- HARDCODED SO FAR -->
+            <!-- <td> {{ data.sellingStatus[0].currentPrice[0].@currencyId }} </td>  -->
+
+            <!-- PICTURE OF ITEM -->
+            <td> <img src="{{ data.galleryURL[0] }}" alt="picture of product" width="100" height="100"> </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
