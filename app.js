@@ -24,7 +24,7 @@ app.controller('myController', function($scope, $http) {
 
         var url = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords"
             + "&SERVICE-VERSION=1.0.0"
-            + "&SECURITY-APPNAME=AndersPe-bc85-43f3-a6eb-cd798e682cc6"
+            + "&SECURITY-APPNAME=appname"
             + "&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD"
             + "&keywords="+$scope.myInputFormated
             + "&paginationInput.entriesPerPage=100"
